@@ -9,19 +9,14 @@
     "lastModifiedAt": 1343182801400, 
     "lastModifiedBy": "admin@apigee.com", 
     "name": "myAPI", 
-    "policies": [{
+    "policies": [1343182801400], 
+    "proxyEndpoints": [], 
+    "resources": [{
         "majorVersion": 4, 
         "minorVersion": 0
     }], 
-    "proxyEndpoints": [{
-        "majorVersion": 4, 
-        "minorVersion": 0
-    }], 
-    "resources": [], 
     "revision": "1", 
     "targetEndpoints": [], 
     "targetServers": [], 
-    "type": "Application",
-    "boolField": false,
-    "doubleField": 134.3182801400
+    "type": "Application"
 }

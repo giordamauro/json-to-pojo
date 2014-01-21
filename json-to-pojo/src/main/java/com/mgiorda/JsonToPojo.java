@@ -119,6 +119,20 @@ public final class JsonToPojo {
 
 			narrowClass = generateClass(packageName, elementName, array.get(0));
 		}
+
+		String narrowName = narrowClass.name();
+		Class<?> boxedClass = null;
+		if (narrowName.equals("int")) {
+			boxedClass = Integer.class;
+		} else if (narrowName.equals("long")) {
+			boxedClass = Long.class;
+		} else if (narrowName.equals("double")) {
+			boxedClass = Double.class;
+		}
+		if (boxedClass != null) {
+			narrowClass = codeModel.ref(boxedClass);
+		}
+
 		JClass listClass = codeModel.ref(List.class).narrow(narrowClass);
 		return listClass;
 	}
