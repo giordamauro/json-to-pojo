@@ -54,6 +54,13 @@ public final class JsonToPojo {
 		String className = classPackage.substring(lastIndexDot + 1, classPackage.length());
 
 		generateClass(packageName, className, root);
+
+		try {
+			codeModel.build(new File(DEFAULT_FILE_PATH));
+
+		} catch (Exception e) {
+			throw new IllegalStateException("Couldn't generate Pojo", e);
+		}
 	}
 
 	private static JClass generateClass(String packageName, String className, JsonElement jsonElement) {
@@ -163,7 +170,7 @@ public final class JsonToPojo {
 		return jClass;
 	}
 
-	public static void generatePojo(String className, String filePath, Map<String, JClass> fields) {
+	public static void generatePojo(String className, Map<String, JClass> fields) {
 
 		try {
 			JDefinedClass definedClass = codeModel._class(className);
@@ -172,15 +179,10 @@ public final class JsonToPojo {
 
 				addGetterSetter(definedClass, field.getKey(), field.getValue());
 			}
-			codeModel.build(new File(filePath));
 
 		} catch (Exception e) {
 			throw new IllegalStateException("Couldn't generate Pojo", e);
 		}
-	}
-
-	public static void generatePojo(String className, Map<String, JClass> fields) {
-		generatePojo(className, DEFAULT_FILE_PATH, fields);
 	}
 
 	private static void addGetterSetter(JDefinedClass definedClass, String fieldName, JClass fieldType) {
