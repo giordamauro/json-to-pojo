@@ -47,7 +47,7 @@ public final class JsonToPojo {
 		generateCode(root, classPackage);
 	}
 
-	private static void generateCode(JsonElement root, String classPackage) {
+	static void generateCode(JsonElement root, String classPackage) {
 
 		int lastIndexDot = classPackage.lastIndexOf(".");
 		String packageName = classPackage.substring(0, lastIndexDot);

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage enabled="true" continueOnError="false" async="false" name="AssignPath">
+    <DisplayName>AssignPath</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Copy source="request">
+        <Headers/>
+        <QueryParams/>
+        <FormParams/>
+        <Payload>false</Payload>
+        <Path>false</Path>
+    </Copy>
+    <Add>
+        <Headers/>
+        <QueryParams/>
+        <FormParams/>
+    </Add>
+    <Set>
+        <Headers/>
+        <QueryParams/>
+        <FormParams/>
+        <Path>/openapi-security-oauth-web/login</Path>
+    </Set>
+    <AssignVariable>
+        <Name>name</Name>
+        <Value></Value>
+        <Ref></Ref>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request">Request</AssignTo>
+</AssignMessage>
